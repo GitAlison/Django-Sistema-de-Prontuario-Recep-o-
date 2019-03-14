@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+ 
+    <div class="card-body">
+        <div>
+            <h4 class="card-title">Registro de Agente</h4>
+            
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{form.nome_completo.label_tag}}
+                    {{form.nome_completo}}
+                    {{form.sexo.label_tag}}
+                    {{form.sexo}}
+                    {{form.cpf.label_tag}}
+                    {{form.cpf}}
+                    {{form.rg.label_tag}}
+                    {{form.rg}}
+                    {{form.data_nascimento.label_tag}}
+                    {{form.data_nascimento}}
+                    <br>
+                    <button class="btn btn-primary" type="submit">Enviar</button>
+                </form>
+            </div>
+            <div class="col-sm-6">
+           
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        $("input[name='nome_completo']").focus();
+    </script>
+{% endblock content %}

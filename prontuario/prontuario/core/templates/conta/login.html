@@ -1,0 +1,81 @@
+<!doctype html> {% load staticfiles %}
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+  <link rel="stylesheet" href="{% static 'css/select2.min.css' %}">
+  <title>Prontuarios</title>
+</head>
+
+<body class="bg-light">
+  <div class="container">
+    <br> {% for message in messages %}
+    <div style="opacity:100;" class="alert alert-warning alert-dismissible fade in" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <strong>{{message}}</strong>
+    </div>
+    {% endfor %}
+
+    <div style="max-width:500px;margin:0 auto;" class="login-box-body">
+      <h4 class="text-center ">Sistema de prontuarios</h4>
+      <br>
+      <br>
+      <p>Entre para iniciar uma sessão</p>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group has-feedback">
+          {{form.username.label_tag}}
+          {{form.username}}
+
+        </div>
+        <div class="form-group ">
+          {{form.password.label_tag}}
+          {{form.password}}
+        </div>
+        <div class="form-group ">
+          <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
+        </div>
+
+
+        <div class="form-group">
+
+          {% if form.errors %}
+          <div style="opacity:100;" class="alert alert-warning alert-dismissible fade in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>{{form.errors}}</strong>
+          </div>
+          {% endif %}
+
+        </div>
+        
+      </form>
+    </div>
+
+
+
+
+    <script>
+      $(".alert").alert();
+    </script> {% block content %} {% endblock content %}
+
+
+  </div>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/select2.min.js' %}"></script>
+  <script>
+    $(document).ready(function () {
+      $('input').addClass('form-control')
+      $('.select2').select2();
+    });
+  </script> {% block script %} {% endblock script%}
+</body>
+
+</html>

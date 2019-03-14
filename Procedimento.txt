@@ -1,0 +1,23 @@
+SIGA COM EXATIDÂO OS PROCEDIMENTOS
+
+Copie todos para o disco C://
+1. Instale o Python 3.6.5
+	1 Na tela de instalação havera uma opção abaixo "add Python 3.6 to PATH" marque ela é de super importancia.
+
+2. execute o arquivo instalar.bat(pode demorar um pouco)
+	1 Aguarde ate a tela fechar
+
+3. para iniciar o programa Execute StartProntuario.bat
+	1 O prompt de comando vai abrir e informar que o servidor esta ligado, ele ira liberar um 
+	  Endereço que geralmente é http://localhost:8000 coloque o endereço na url do navegador.
+	  Caso seja diferente coloque o que o sistema informou
+	  e não feche.
+
+4.
+
+
+
+
+
+
+

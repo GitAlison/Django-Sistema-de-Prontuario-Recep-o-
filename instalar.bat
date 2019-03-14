@@ -1,0 +1,1 @@
+@ECHO Instalando \ Desenvolvedor:Alison - Data 15/10/2018 - Version: 1.0.0 && python -m venv VENV-SISTEM && move prontuario C:\SISTEMA_PRONTUARIO\VENV-SISTEM\Scripts  && C:\SISTEMA_PRONTUARIO\VENV-SISTEM\Scripts\activate && cd C:\SISTEMA_PRONTUARIO\VENV-SISTEM\Scripts\prontuario && pip install -r requirements.txt

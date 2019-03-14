@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+ 
+    <div class="card-body">
+        <div>
+            <h4 class="card-title">Mudar Senha</h4>
+            
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <form method="POST">
+                    {% csrf_token %}
+                    {{form.as_table}}
+                    <br>
+                    <button class="btn btn-primary" type="submit">Mudar Senha</button>
+                </form>
+            </div>
+            <div class="col-sm-6">
+           
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+        $("input[name='nome_completo']").focus();
+    </script>
+{% endblock content %}

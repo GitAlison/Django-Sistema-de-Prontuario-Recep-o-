@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    
+    <div class="card-body">
+        <div>
+            <h4 class="card-title">Listagem de Familias<a class="float-right  btn btn-primary" href="{% url 'core:familia-create' %}">Nova Familia</a></h4>
+            
+        </div>
+        <table class="table table-striped table-sm table-bordered table-hover table-inverse">
+            <thead class="thead-default bg-primary text-light">
+                <tr>
+                    <th>Cod Familia</th>
+                    <th>Titular</th>
+                    <th>Agente</th>
+                    <th>Integrantes</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for obj in familia_list %}
+                    <tr>
+                        <td scope="row">{{obj.id}}</td>
+                        <td>{{obj.titular}}</td>
+                        <td>{{obj.agente}}</td>
+                        <td>
+                            {% for integrantes in obj.integrantefamilia_set.all %}
+                            <b>Cod:</b> {{ integrantes.id }}
+                            {{integrantes.paciente.nome_completo}} <b>SUS:</b> {{integrantes.paciente.sus}} <br>
+                            {%endfor%}
+                        </td>
+                        <td > 
+                            <a href="{% url 'core:familia-update' obj.id %}"><i class="btn btn-primary fa fa-pencil-square" ></i></a>
+                            
+                        </td>
+                    </tr>
+                    {% endfor %}
+                   
+                </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}

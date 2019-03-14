@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    {{funcionarios_obj}}
+    <div class="card-body">
+        <div>
+            <h4 class="card-title">Listagem de Agentes <a class="float-right  btn btn-primary" href="{% url 'core:funcionario-create' %}">Novo Funcionario</a></h4>
+            
+        </div>
+        <table class="table table-striped table-sm table-bordered table-hover table-inverse  table-responsive">
+            <thead class="thead-default bg-primary text-light">
+                <tr>
+                    <th>Cod</th>
+                    <th>Nome</th>
+                    <th>Sexo</th>
+                    <th>Data Nascimento</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for obj in funcionario_list %}
+                    <tr>
+                        <td scope="row">{{obj.id}}</td>
+                        <td>{{obj.nome_completo}}</td>
+                        <td>{{obj.sexo}}</td>
+                        <td>{{obj.data_nascimento|date:'d/m/Y'}}</td>
+                        <td>
+                            
+                            {% if obj.status == 'Ativado' %}
+                            <i class="btn btn-success btn-lg"></i>
+                            
+                            {% else %}
+                                <i class="btn btn-danger btn-lg">
+                            
+                            {% endif %}
+                        </td>
+                        <td > 
+                            <a href="{% url 'core:funcionario-update' obj.id %}"><i class="btn btn-primary fa fa-pencil-square" ></i></a>
+                            {% if obj.status == 'Ativado' %}
+                            <a class="btn btn-light" href="{% url 'core:funcionario-desativar' obj.id %}">Desativar</a>
+                            
+                            {% else %}
+                            <a class="btn btn-light" href="{% url 'core:funcionario-ativar' obj.id %}">Ativar</a>
+                            
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                   
+                </tbody>
+        </table>
+    </div>
+</div>
+{% endblock content %}
